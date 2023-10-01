@@ -1,0 +1,23 @@
+<p>index works!</p>
+
+
+<div >
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">is done</th>
+      <th scope="col">edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let user of users;">
+      <th scope="row">{{user.email}}</th>
+      <th scope="row">{{user.firstName}}</th>
+      <th scope="row">{{user.lastName}}</th>
+      <td>edit</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

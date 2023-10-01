@@ -1,12 +1,9 @@
 
 
-export class User{
+export interface User{
 
- constructor() {
- }
-
-  firstName:string|null;
-  lastName:string|null;
+  firstName:string|null|undefined|unknown;
+  lastName:string|null|undefined|unknown;
   email:string;
   password:string;
 
