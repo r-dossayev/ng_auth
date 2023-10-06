@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+
 })
 export class RegisterComponent {
   users:User[];
@@ -20,15 +20,19 @@ export class RegisterComponent {
   id:number = 1;
   register(){
     if (!this.email || !this.password){
-      return  this.error = "error"
-    // }else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)){
-    //    return  this.error = " un correct email"
+      return  this.error = "password and email is required"
+    } if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))){
+       return  this.error = " un correct email"
     }
     if (this.password.length <6)
       return  this.error = "password min 6 symbols"
 
-      // if (this.userService.getUserByEmail(this.email))
-      //   return    this.error = "email is not busy"
+     this.users.forEach((e)=>{
+       if (!(e.email === this.email)){
+         return this.error = ""
+       }
+       return this.error = "email is busy"
+     })
 
         this.userService.addUser({
           "firstName": this.firstName,
@@ -37,7 +41,7 @@ export class RegisterComponent {
           "password": this.password
         })
 
-        // this.userService.setMessage("success register")
+
         return this.router.navigate(["home"])
 
   }

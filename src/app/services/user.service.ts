@@ -23,7 +23,7 @@ export class UserService {
 
   }
   getAuthUser(){
-    return authUser[0]
+    return authUser[authUser.length-1]
   }
   setAuthUser(user:User){
     authUser.push(user)

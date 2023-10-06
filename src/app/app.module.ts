@@ -6,13 +6,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { IndexComponent } from './components/index/index.component';
 import { FormsModule } from '@angular/forms';
 import {BrowserModule} from "@angular/platform-browser";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    IndexComponent
+    IndexComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

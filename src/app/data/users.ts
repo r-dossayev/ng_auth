@@ -2,22 +2,36 @@ import {User} from "../models/User";
 
 export const users:User[] = [
   {
-    "firstName": "rty",
-    "lastName": "erty",
-    "email": "qwe@gmail.com",
-    "password": 'qweqwe'
+    "firstName": "Erjan",
+    "lastName": "Bolathan",
+    "email": "admin@gmail.com",
+    "password": 'password'
+  },
+  {
+    "firstName": "Sanjar",
+    "lastName": "Serik",
+    "email": "serik@gmail.com",
+    "password": 'password'
   }
 ]
 export const userData = {
   users: [
     {
-      firstName: 'rty',
-      lastName: 'erty',
-      email: 'qwe@gmail.com',
-      password: 'qweqwe',
+      "firstName": "Erjan",
+      "lastName": "Bolathan",
+      "email": "admin@gmail.com",
+      "password": 'password'
     },
+    {
+      "firstName": "Sanjar",
+      "lastName": "Serik",
+      "email": "serik@gmail.com",
+      "password": 'password'
+    }
   ],
 };
-export let authUser:User[];
+export let authUser:User[]= [
+
+];
 export let message:Array<string>
 
