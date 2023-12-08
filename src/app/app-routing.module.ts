@@ -7,7 +7,9 @@ import {IndexComponent} from "./components/index/index.component";
 import {users} from "./data/users";
 import {UserService} from "./services/user.service";
 import {ProfileComponent} from "./components/profile/profile.component";
+import {HttpClient} from "@angular/common/http";
 
+// @ts-ignore
 const service = new UserService();
 const routes: Routes = [
   {path: '', redirectTo: "home", pathMatch: "full"},
@@ -20,6 +22,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+
     BrowserModule,
     RouterModule.forRoot(routes, {enableTracing: true}),
 

@@ -22,12 +22,12 @@ export class LoginComponent {
 
   login(){
     if (!this.email || !this.password){
-      return  this.error = "password and email is required"
+      return  this.error = "пароль и email обьязателно"
     } if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))){
-      return  this.error = " un correct email"
+      return  this.error = " email ошибка "
     }
     if (this.password.length <6)
-      return  this.error = "password min 6 symbols"
+      return  this.error = "пароль мин 6  символ"
 
     this.users.forEach((e)=>{
       if (!(e.email === this.email)){
@@ -37,7 +37,7 @@ export class LoginComponent {
       this.userService.setAuthUser(e)
       return this.router.navigate(["profile"], )
     })
-  return this.error = "user not found"
+  return this.error = "пользователь не найден"
 
   }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {User} from "../../models/User";
 import {UserService} from "../../services/user.service";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-index',
@@ -8,11 +10,20 @@ import {UserService} from "../../services/user.service";
 
 })
 export class IndexComponent {
-  users:User[];
-  constructor(private userService: UserService) {
+  users:any[];
+  constructor(private userService: UserService, ){
   }
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    //https://jsonplaceholder.typicode.com/users
+    //get users in api
+    // this.users = this.userService.getUsers2();
+  // @ts-ignore
+    let http = new HttpClient();
+      http.get<any[]>(`https://jsonplaceholder.typicode.com/users`).subscribe((data: any[]) => {
+      console.log(data);
+      this.users = data;
+    });
   }
+
 
 }
