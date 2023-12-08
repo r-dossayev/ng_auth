@@ -7,6 +7,7 @@ import { IndexComponent } from './components/index/index.component';
 import { FormsModule } from '@angular/forms';
 import {BrowserModule} from "@angular/platform-browser";
 import { ProfileComponent } from './components/profile/profile.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileComponent } from './components/profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
 
   providers: [],

@@ -11,15 +11,16 @@ import {HttpClient} from "@angular/common/http";
 })
 export class IndexComponent {
   users:any[];
-  constructor(private userService: UserService, ){
+  constructor(private userService: UserService, private http: HttpClient){
   }
+
   ngOnInit() {
     //https://jsonplaceholder.typicode.com/users
     //get users in api
     // this.users = this.userService.getUsers2();
   // @ts-ignore
-    let http = new HttpClient();
-      http.get<any[]>(`https://jsonplaceholder.typicode.com/users`).subscribe((data: any[]) => {
+
+      this.http.get<any[]>(`https://jsonplaceholder.typicode.com/users`).subscribe((data: any[]) => {
       console.log(data);
       this.users = data;
     });
