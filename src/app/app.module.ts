@@ -8,6 +8,11 @@ import { FormsModule } from '@angular/forms';
 import {BrowserModule} from "@angular/platform-browser";
 import { ProfileComponent } from './components/profile/profile.component';
 import {HttpClientModule} from "@angular/common/http";
+import { BookComponent } from './components/book/book.component';
+
+
+import { StoreModule } from '@ngrx/store';
+import { UserReducer } from './store/user.reducer';
 
 @NgModule({
   declarations: [
@@ -15,13 +20,16 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     RegisterComponent,
     IndexComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    // StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ users: UserReducer }),
   ],
 
   providers: [],

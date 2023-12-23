@@ -4,6 +4,7 @@ import {RegisterComponent} from "./components/register/register.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {LoginComponent} from "./components/login/login.component";
 import {IndexComponent} from "./components/index/index.component";
+import {BookComponent} from "./components/book/book.component";
 import {users} from "./data/users";
 import {UserService} from "./services/user.service";
 import {ProfileComponent} from "./components/profile/profile.component";
@@ -14,6 +15,7 @@ const service = new UserService();
 const routes: Routes = [
   {path: '', redirectTo: "home", pathMatch: "full"},
   {path: 'home', component: IndexComponent},
+  {path: 'books', component: BookComponent},
   {path: 'login', component: LoginComponent,},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
