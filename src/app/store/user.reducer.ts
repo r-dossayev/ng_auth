@@ -1,5 +1,3 @@
-import * as CounterActions from './user.actions';
-import {UserActions} from './user.actions';
 import {User} from "../models/User";
 import {createAction, createReducer, on} from "@ngrx/store";
 
@@ -25,7 +23,7 @@ const initialState: UserState = {
 
 export type UserState = {
   count: number,
-  users: User[],
+  users: any[],
   authUser: User,
 };
 

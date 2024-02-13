@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../services/user.service";
-import {HttpClient} from "@angular/common/http";
-import {select, Store} from "@ngrx/store";
-import {Observable} from "rxjs";
-import {UserState} from "../../store/user.reducer";
+import {TaskService} from "../../services/task.service";
+import {Task} from "../../models/User";
 
 @Component({
   selector: 'app-index',
@@ -13,37 +10,31 @@ import {UserState} from "../../store/user.reducer";
 
 
 export class IndexComponent implements OnInit {
-  users:any[];
-  articles$:  Observable<number>;
-  constructor(private userService: UserService, private http: HttpClient, private store: Store<UserState>){
+  tasks:Task[];
+  new_task = {name: 'ssssss', isCompleted: false, description:"", date: ""};
+  constructor(private taskService: TaskService,){
   }
-
-
 
   ngOnInit() {
-
-
-    //   this.http.get<any[]>(`https://jsonplaceholder.typicode.com/users`).subscribe((data: any[]) => {
-    //   // console.log(data);
-    //   this.users = data;
-    // });
-    // const
-    console.log("this.users")
-    //@ts-ignore
-    // console.log(this.store._value)
-    // console.log(this.store.select((store) => store.users))
-    // @ts-ignore
-    // console.log(this.store.source._value.users.users)
-    this.articles$ = this.store.select((store) =>  store.count);
-    // this.store.source._value.users.count = 987654;
-    // this.articles$ = this.store.source._value.users.count;
-    // @ts-ignore
-    // console.log(this.store.pipe(select((store) => store.users.count)))
-    // this.articles$ = this.store.pipe(select((store) => store.count));
-
-    console.log("this.articles$")
-    console.log(this.articles$)
+    this.taskService.getTasks().subscribe((users: any) => {
+      this.tasks = users.data;
+    });
   }
+  addTask(){
+    const task:Task = {
+      _id: "0",
+      name: this.new_task.name,
+      description: this.new_task.description,
+      isCompleted: this.new_task.isCompleted,
+      date: new Date()
+    };
+    console.log(task);
+     this.taskService.addTask(task).subscribe((task: Task) => {
+      this.tasks.push(task);
+    });
+    // refresh the list
+  }
+
 
 
 }

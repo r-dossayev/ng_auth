@@ -12,9 +12,9 @@ export class RegisterComponent {
   users:User[];
   constructor(private userService: UserService, private router:Router) {
   }
-  ngOnInit() {
-    this.users = this.userService.getUsers();
-  }
+  // ngOnInit() {
+  //   this.users = this.userService.getUsers();
+  // }
   email:string; password:string; firstName:string|null; lastName:string|null;
   error= "";
   id:number = 1;

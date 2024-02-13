@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {users, authUser, message, userData} from "../data/users";
+import {Injectable} from '@angular/core';
+import {authUser, message, users} from "../data/users";
 import {User} from "../models/User";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -48,8 +48,18 @@ export class UserService {
     const http = new HttpClient();
     return http.get<any[]>(`${this.apiUrl}/users`);
   }
-  getUsers(): Array<User> {
-    return users;
+  getUsers(): Observable<any[]> {
+    let url = "http://localhost:8787/api/tasks";
+
+    return new Observable<any[]>(observer => {
+      fetch(url).then(response => {
+        response.json().then(data => {
+          observer.next(data);
+          observer.complete();
+        });
+      });
+    });
+
   }
 
   // getPostById(id: number): Observable<any> {

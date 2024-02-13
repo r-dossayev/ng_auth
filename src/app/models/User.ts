@@ -8,3 +8,11 @@ export interface User{
   password:string;
 
 }
+export interface Task{
+
+  _id:string;
+  name:string;
+  description:string;
+  isCompleted:boolean;
+  date:Date;
+}

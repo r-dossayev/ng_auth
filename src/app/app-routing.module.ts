@@ -9,6 +9,8 @@ import {users} from "./data/users";
 import {UserService} from "./services/user.service";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {HttpClient} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {UserReducer} from "./store/user.reducer";
 
 // @ts-ignore
 const service = new UserService();
@@ -27,10 +29,14 @@ const routes: Routes = [
 
     BrowserModule,
     RouterModule.forRoot(routes, {enableTracing: true}),
+    StoreModule.forRoot({users: UserReducer}),
+
+
 
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    StoreModule
   ],
 })
 export class AppRoutingModule {
