@@ -1,0 +1,25 @@
+
+
+<div class="text-center mt-5"><h3>User list</h3></div>
+<div class="mt-5 container" >
+  <table class="table ">
+    <thead>
+    <tr>
+
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+      <th scope="col">ganre</th>
+<!--      <th scope="col">author</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let user of users; ">
+      <th scope="row">{{user.name}}</th>
+      <th scope="row">{{user.description}}</th>
+      <th scope="row">{{user.ganre}}</th>
+<!--      <th scope="row">{{user.author[0]?.name}}</th>-->
+
+    </tr>
+    </tbody>
+  </table>
+</div>
