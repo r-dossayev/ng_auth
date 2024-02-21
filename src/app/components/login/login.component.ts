@@ -16,21 +16,21 @@ export class LoginComponent {
     // this.users = this.userService.getUsers();
   }
 
-  email:string; password:string; firstName:string|null; lastName:string|null;
+  username:string; password:string; firstName:string|null; lastName:string|null;
 
   error= "";
 
   login(){
-    if (!this.email || !this.password){
-      return  this.error = "пароль и email обьязателно"
-    } if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))){
-      return  this.error = " email ошибка "
+    if (!this.username || !this.password){
+      return  this.error = "пароль и username обьязателно"
+    } if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.username))){
+      return  this.error = " username ошибка "
     }
     if (this.password.length <6)
       return  this.error = "пароль мин 6  символ"
 
     this.users.forEach((e)=>{
-      if (!(e.email === this.email)){
+      if (!(e.username === this.username)){
         return this.error = ""
       }
 

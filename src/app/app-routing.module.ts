@@ -11,6 +11,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {HttpClient} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
 import {UserReducer} from "./store/user.reducer";
+import {UserComponent} from "./components/user/user.component";
 
 // @ts-ignore
 const service = new UserService();
@@ -21,6 +22,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent,},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'user-details', component: UserComponent},
+
   {path: '**', redirectTo: 'home'}
 ];
 

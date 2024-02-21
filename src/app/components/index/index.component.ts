@@ -11,7 +11,7 @@ import {Task} from "../../models/User";
 
 export class IndexComponent implements OnInit {
   tasks:Task[];
-  new_task = {name: 'ssssss', isCompleted: false, description:"", date: ""};
+  new_task = {name: '', isCompleted: false, description:"", date: ""};
 
   selectedTask: Task = { _id: '', name: '', description: '', isCompleted: false, date: new Date() };
   constructor(private taskService: TaskService,){

@@ -13,6 +13,7 @@ import {BookComponent} from './components/book/book.component';
 
 import {StoreModule} from '@ngrx/store';
 import {UserReducer} from './store/user.reducer';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {UserReducer} from './store/user.reducer';
     RegisterComponent,
     IndexComponent,
     ProfileComponent,
-    BookComponent
+    BookComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

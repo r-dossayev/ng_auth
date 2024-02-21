@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {authUser, message, users} from "../data/users";
-import {User} from "../models/User";
+import {Task, User} from "../models/User";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ajax} from "rxjs/internal/ajax/ajax";
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,39 @@ export class UserService {
     // return  users;
     // }
     //
-
+  url = "http://localhost:8787/api/";
 
   addUser(user: User){
-    users.push(user)
+   let data = { ...user, "title": user.firstName+" "+user.lastName, }
+    let ajax$ = ajax({
+      url: this.url + "register",
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    return new Observable<User>(observer => {
+      ajax$.subscribe((response:any) => {
+        observer.next(response.response.data);
+
+        observer.complete();
+      });
+    });
 
     }
+
+    addUSerToLocalStorage(user:User):Observable<any>{
+
+      return new Observable<any>(observer => {
+        localStorage.setItem('authUser', JSON.stringify(user));
+        observer.next(user);
+        observer.complete();
+      });
+    }
   getUserByEmail(email:string):User{
-    return users.find((user) => user.email === email)!;
+    return users.find((user) => user.username === email)!;
 
   }
   getAuthUser(){

@@ -4,13 +4,13 @@ export const users:User[] = [
   {
     "firstName": "Erjan",
     "lastName": "Bolathan",
-    "email": "admin@gmail.com",
+    "username": "admin@gmail.com",
     "password": 'password'
   },
   {
     "firstName": "Sanjar",
     "lastName": "Serik",
-    "email": "serik@gmail.com",
+    "username": "serik@gmail.com",
     "password": 'password'
   }
 ]
@@ -19,13 +19,13 @@ export const userData = {
     {
       "firstName": "Erjan",
       "lastName": "Bolathan",
-      "email": "admin@gmail.com",
+      "username": "admin@gmail.com",
       "password": 'password'
     },
     {
       "firstName": "Sanjar",
       "lastName": "Serik",
-      "email": "serik@gmail.com",
+      "username": "serik@gmail.com",
       "password": 'password'
     }
   ],

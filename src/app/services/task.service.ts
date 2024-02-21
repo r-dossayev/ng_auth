@@ -59,7 +59,7 @@ export class TaskService {
 
   updateTask(task:any){
    let ajax$ =  ajax({
-      url: this.url + "tasks/"+task.id,
+      url: this.url + "tasks/"+task._id,
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

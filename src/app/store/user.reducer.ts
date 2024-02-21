@@ -7,14 +7,14 @@ const initialState: UserState = {
     {
       firstName: 'Erjan',
       lastName: 'Bolathan',
-      email: 'sss',
+      username: 'sss',
       password: 'sssss',
     },
   ],
   authUser: {
     firstName: 'Erjan',
     lastName: 'Bolathan',
-    email: 'sss',
+    username: 'sss',
     password: 'sssss',
   }
   ,
